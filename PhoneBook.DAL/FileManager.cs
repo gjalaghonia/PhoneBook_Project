@@ -7,7 +7,7 @@ using PhoneBook.Models;
 
 namespace PhoneBook.DAL
 {
-    public class FileManager
+    public static class FileManager
     {
         /// <summary>
         /// კითხულობს და აბრუნებს კონტაქტების სიას მითითებული ფაილიდან.
@@ -15,7 +15,7 @@ namespace PhoneBook.DAL
         /// <param name="filePath">წასაკითხი ფაილის მისამართი</param>
         /// <returns>აბრუნებს ფაილიდან წაკითხულ კონტაქტების სიას</returns>
         /// <exception cref="NotImplementedException"></exception>
-        public IEnumerable<Contact> LoadContacts(string filePath)
+        public static IEnumerable<Contact> LoadContacts(string filePath)
         {
             if (filePath == null) throw new ArgumentNullException(nameof(filePath));
 
@@ -48,7 +48,7 @@ namespace PhoneBook.DAL
         /// <param name="filePath">შესანახი ფაილის მისამართი</param>
         /// <param name="contacts">შესანახი კონტაქტების სია</param>
         /// <exception cref="NotImplementedException"></exception>
-        public void SaveContacts(string filePath, IEnumerable<Contact> contacts)
+        public static void SaveContacts(string filePath, IEnumerable<Contact> contacts)
         {
             if (filePath == null) throw new ArgumentNullException(nameof(filePath));
             if (contacts == null) throw new ArgumentNullException(nameof(contacts));
@@ -68,9 +68,9 @@ namespace PhoneBook.DAL
             }
         }
 
-        private string GetValue(string value) => value ?? string.Empty;
+        private static string GetValue(string value) => value ?? string.Empty;
 
-        private void VolidateIDs(IEnumerable<Contact> contacts)
+        private static void VolidateIDs(IEnumerable<Contact> contacts)
         {
             HashSet<int> ids = new();
             foreach (var contact in contacts)
