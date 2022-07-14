@@ -10,10 +10,10 @@ namespace PhoneBook.DAL
     public static class FileManager
     {
         /// <summary>
-        /// კითხულობს და აბრუნებს კონტაქტების სიას მითითებული ფაილიდან.
+        /// Reads and returns Contact lists from File
         /// </summary>
-        /// <param name="filePath">წასაკითხი ფაილის მისამართი</param>
-        /// <returns>აბრუნებს ფაილიდან წაკითხულ კონტაქტების სიას</returns>
+        /// <param name="filePath">file path from where should read</param>
+        /// <returns>returns cobntact list from file</returns>
         /// <exception cref="NotImplementedException"></exception>
         public static IEnumerable<Contact> LoadContacts(string filePath)
         {
@@ -42,11 +42,11 @@ namespace PhoneBook.DAL
         }
 
         /// <summary>
-        /// ინახავს გადაცემულ კონტაქტებს მითითებულ ფაილში.
-        /// უნდა გადაამოწმოს, რომ სიაში არ იყოს ერთი და იგივე ID_ის კონტაქტი.
+        /// saves contact list into the file ( binary mode).
+        /// before save should check if ID unique or no.
         /// </summary>
-        /// <param name="filePath">შესანახი ფაილის მისამართი</param>
-        /// <param name="contacts">შესანახი კონტაქტების სია</param>
+        /// <param name="filePath">filepath where should save</param>
+        /// <param name="contacts">contact list</param>
         /// <exception cref="NotImplementedException"></exception>
         public static void SaveContacts(string filePath, IEnumerable<Contact> contacts)
         {
